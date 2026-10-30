@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "popow": {
+      "type": "http",
+      "url": "https://mcp.popow.ai/mcp",
+      "oauth": {
+        "clientId": "b459679b-695c-4f8c-bd33-c901f8156c41",
+        "callbackPort": 39603
+      },
+      "oauth_resource": "https://mcp.popow.ai/mcp",
+      "scopes": [
+        "email"
+      ]
+    }
+  }
+}

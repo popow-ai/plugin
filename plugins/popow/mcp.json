@@ -1,0 +1,27 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "popow": {
+      "type": "streamable-http",
+      "url": "https://mcp.popow.ai/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "provided",
+              "clientId": "b459679b-695c-4f8c-bd33-c901f8156c41",
+              "tokenEndpointAuthMethod": "none"
+            },
+            "baseScopes": [
+              "email"
+            ],
+            "defaultScopes": [
+              "email"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

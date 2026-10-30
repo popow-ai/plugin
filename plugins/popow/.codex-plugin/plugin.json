@@ -1,0 +1,31 @@
+{
+  "name": "popow",
+  "version": "0.0.3",
+  "description": "Find TikTok creative references with links, recorded metrics, and stored analysis excerpts.",
+  "author": {
+    "name": "Samyang Popow Inc."
+  },
+  "license": "MIT",
+  "interface": {
+    "displayName": "Popow",
+    "shortDescription": "Find TikTok video references",
+    "longDescription": "Popow helps people making short-form videos find TikTok creative references for campaigns, products and content formats. A Popow sign-in is required.\n\nDescribe the videos you want to find. Popow searches its library and returns links, recorded engagement counts and excerpts of stored analysis. Your AI app uses that evidence to explain and compare references. You can specify publish-date, recorded-view and creator-follower filters, or ask for more references like a previous result.\n\nPopow also identifies the connected account, displays supplied TikTok and YouTube Shorts links, and reads collection status for the signed-in account. Interactive video cards depend on your AI app supporting MCP Apps. The submitted production connection does not offer video-collection submission.\n\nCounts are stored observations, not live TikTok metrics. Creator and audience countries, filming location and demographics are not verified. Popow does not publish videos, message creators, remove watermarks or grant rights to reuse content.",
+    "developerName": "Samyang Popow Inc.",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive"
+    ],
+    "defaultPrompt": [
+      "Find TikTok references for a sunscreen launch showing it as a makeup-prep step.",
+      "Show me skincare review videos posted in the last 90 days."
+    ],
+    "websiteURL": "https://popow.ai/plugin",
+    "supportURL": "https://popow.ai/support",
+    "privacyPolicyURL": "https://popow.ai/privacy",
+    "termsOfServiceURL": "https://popow.ai/terms",
+    "logo": "./assets/logo.png",
+    "composerIcon": "./assets/logo.png"
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

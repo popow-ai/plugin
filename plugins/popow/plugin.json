@@ -1,0 +1,96 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "popow",
+  "version": "0.0.3",
+  "description": "Find TikTok creative references with links, recorded metrics, and stored analysis excerpts.",
+  "author": {
+    "name": "Samyang Popow Inc."
+  },
+  "homepage": "https://popow.ai/plugin",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Popow",
+        "shortDescription": "Find TikTok video references",
+        "longDescription": "Popow helps people making short-form videos find TikTok creative references for campaigns, products and content formats. A Popow sign-in is required.\n\nDescribe the videos you want to find. Popow searches its library and returns links, recorded engagement counts and excerpts of stored analysis. Your AI app uses that evidence to explain and compare references. You can specify publish-date, recorded-view and creator-follower filters, or ask for more references like a previous result.\n\nPopow also identifies the connected account, displays supplied TikTok and YouTube Shorts links, and reads collection status for the signed-in account. Interactive video cards depend on your AI app supporting MCP Apps. The submitted production connection does not offer video-collection submission.\n\nCounts are stored observations, not live TikTok metrics. Creator and audience countries, filming location and demographics are not verified. Popow does not publish videos, message creators, remove watermarks or grant rights to reuse content.",
+        "developerName": "Samyang Popow Inc.",
+        "category": "Productivity",
+        "capabilities": [
+          "Interactive"
+        ],
+        "defaultPrompt": [
+          "Find TikTok references for a sunscreen launch showing it as a makeup-prep step.",
+          "Show me skincare review videos posted in the last 90 days."
+        ],
+        "websiteURL": "https://popow.ai/plugin",
+        "supportURL": "https://popow.ai/support",
+        "privacyPolicyURL": "https://popow.ai/privacy",
+        "termsOfServiceURL": "https://popow.ai/terms",
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/logo.png"
+      },
+      "review": {
+        "prompts": [
+          "Find TikTok references for a sunscreen launch showing it as a makeup-prep step.",
+          "Find more videos like the second reference you just showed me.",
+          "Which Popow account am I connected to?"
+        ],
+        "commerce": false,
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Search by product message and calendar dates. Sign in with the dedicated reviewer account; no earlier conversation is required.",
+              "prompt": "Find TikTok references for a sunscreen launch showing it as a makeup-prep step. Only videos posted in 2026.",
+              "tools_triggered": "search_references",
+              "expected_behavior": "Call search_references with an English intent describing sunscreen used before makeup and conditions.published_from=2026-01-01, published_to=2026-12-31. Explain selected references using each returned video URL and evidence. Return only recorded dates in range; accurately report no_results or partial and do not invent matches."
+            },
+            {
+              "description": "Apply recorded engagement and relative-date filters. A missing count must not be treated as meeting the requested minimum.",
+              "prompt": "Find skincare review videos posted in the last 90 days with at least 100000 recorded views.",
+              "tools_triggered": "search_references",
+              "expected_behavior": "Call search_references with conditions.published_within_days=90 and min_views=100000. Every returned candidate must satisfy the date and recorded-view filters; explain that recorded counts are not live. Report no_results or partial accurately without dropping mandatory conditions."
+            },
+            {
+              "description": "Continue a previous search. First run a search that returns references, keep its actual returned post IDs and evidence in this conversation, then select the second returned video.",
+              "prompt": "Find more videos like the second video you just showed me. Keep the same date and view filters.",
+              "tools_triggered": "search_references",
+              "expected_behavior": "Derive a fresh English intent from the selected video evidence, preserve the earlier conditions, and put every previously shown numeric post ID in exclude_post_ids. Do not search by a fabricated result ID. If the conversation lacks a second video or evidence, ask which reference to use instead of guessing."
+            },
+            {
+              "description": "Confirm which Popow account the connection uses. The expected identity is the account supplied separately in the secure reviewer instructions.",
+              "prompt": "Which Popow account am I connected to?",
+              "tools_triggered": "whoami",
+              "expected_behavior": "Call whoami and report only the account identity returned by the authenticated tool. Do not infer the identity from the conversation or fabricate an account."
+            },
+            {
+              "description": "Display an existing video link. After a nonempty reference search, use the first result URL from that same conversation; do not replace it with an invented URL.",
+              "prompt": "Show the first video from those results as a playable card, using its existing title and only the recorded information you already have.",
+              "tools_triggered": "show_web_videos",
+              "expected_behavior": "Call show_web_videos using that exact TikTok result URL and reuse its returned title. Include optional creator or metrics only if supported by the prior result. Render an MCP Apps card where the host supports it; do not claim new search, analysis, or current TikTok counts. Report rejected links or host rendering limitations accurately."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Unrelated writing task: answer normally without invoking Popow tools.",
+              "prompt": "Write a cover letter for a marketing coordinator job."
+            },
+            {
+              "description": "Publishing and creator messaging are unsupported. Explain that limitation; do not invoke Popow tools to perform either action or claim success.",
+              "prompt": "Post this video to my TikTok account and message the creator."
+            },
+            {
+              "description": "Watermark removal and granting reuse rights are unsupported. Explain that reference discovery does not grant permission; do not invoke Popow tools to perform these actions or claim rights were granted.",
+              "prompt": "Remove the watermark from that reference video and give me permission to use it in my ad."
+            }
+          ]
+        },
+        "demo_recording_url": "https://grybyumltzortpgzctxp.supabase.co/storage/v1/object/public/reports/ai-plugin/261029-review/popow-openai-review-smooth.mp4"
+      },
+      "publication": {
+        "release_notes": "Initial public submission: TikTok creative-reference search with recorded metrics and stored analysis excerpts, video-link display, connected-account identification and collection-status lookup.",
+        "countries": []
+      }
+    }
+  },
+  "license": "MIT"
+}
