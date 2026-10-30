@@ -1,7 +1,7 @@
 ---
 name: popow
 description: "Search TikTok references; use TikTok or Instagram Reels links. Explain Popow capabilities. Instagram discovery uses host tools; not installation, repository development, or general factual research."
-allowed-tools: mcp__popow__search_references, mcp__popow__show_web_videos, mcp__popow__collect_videos, mcp__popow__get_collection_status, mcp__popow__whoami, mcp__popow_local__search_references, mcp__popow_local__show_web_videos, mcp__popow_local__collect_videos, mcp__popow_local__get_collection_status, mcp__popow_local__whoami, mcp__popow_dev__search_references, mcp__popow_dev__show_web_videos, mcp__popow_dev__collect_videos, mcp__popow_dev__get_collection_status, mcp__popow_dev__whoami
+allowed-tools: mcp__popow__search_references, mcp__popow__show_web_videos, mcp__popow__get_collection_status, mcp__popow__whoami
 metadata:
   harness-level: L2
 ---
