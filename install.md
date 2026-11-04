@@ -3,54 +3,66 @@
 Popow adds TikTok creative-reference search to ChatGPT, Claude, Codex and
 Claude Code. A Popow account is required.
 
-Choose the instructions for the app you want to connect:
+Popow is not yet listed in the ChatGPT or Claude plugin directories. Use the
+manual setup below for the app the user wants to connect:
 
 - [ChatGPT web](#chatgpt-web): connect the remote MCP tools.
-- [Claude web](#claude-web): install the skill and MCP connection together.
+- [Claude web](#claude-web): add this repository as a marketplace.
 - [Codex](#codex) and [Claude Code](#claude-code): install the plugin with the CLI.
 
 Only the CLI sections require commands on the user's computer. If you cannot
-run them there, give the user those steps. Web setup takes place in the app,
-without running the CLI installation commands.
+run them there, give the user those steps and wait. Web setup happens inside
+the app and needs no commands.
+
+When setup is complete, end with the single handoff in
+[Try Popow](#try-popow). Do not describe connection checks or tool names to the
+user; the Popow skill handles them.
 
 ## ChatGPT web
 
 This route connects Popow's MCP tools. It does not install this repository's
-bundled skill. Custom MCP availability depends on your account and workspace
-permissions; ask your administrator if the option is missing.
+bundled skill. The option can be hidden by workspace policy; if it is missing,
+the user should ask their workspace administrator.
 
 1. Open [ChatGPT Plugins](https://chatgpt.com/plugins).
-2. Select **+**, then **Add custom MCP server**.
-3. Name it **Popow** and enter `https://mcp.popow.ai/mcp` as the connection URL.
-4. Choose OAuth authentication and complete the Popow sign-in when prompted.
-   Review the permissions and risk warning before continuing.
-5. Select **Create as a plugin**, review its tools, and install it if prompted.
-6. Start a new chat. Type `@`, select Popow, and ask: **Which Popow account am I
-   connected to? Call whoami to check.**
+2. Select **Add**, then **Add custom MCP server**.
+3. Name it **Popow** and enter `https://mcp.popow.ai/mcp` as the server URL.
+4. Keep **OAuth** as the authentication. Expand **Advanced OAuth settings**,
+   leave the registration method as **User-Defined OAuth Client**, and enter
+   `b459679b-695c-4f8c-bd33-c901f8156c41` as the OAuth client ID. Leave the
+   client secret empty and the token endpoint auth method as **none**. Popow
+   does not support dynamic client registration, so this step is required.
+5. Check **I understand and want to continue**, then select
+   **Create as a plugin**. Popow appears under **Installed**.
+6. In the **Connect Popow** dialog, select **Connect Popow** and complete the
+   Popow sign-in in the window that opens.
 
-The current Plugins flow does not require enabling Developer Mode first.
-See [OpenAI's custom MCP setup guide](https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt)
-for account requirements and the legacy Apps interface.
-
-Do not assume that importing this GitHub marketplace makes the plugin usable
-on the web. An imported MCP plugin can be marked **Desktop only**; see
-[OpenAI's marketplace import guide](https://learn.chatgpt.com/docs/enterprise/plugin-management).
-If you need the bundled skill, verify that your installed plugin includes it
-and is web-compatible separately from the MCP connection.
+Do not import this GitHub repository as a ChatGPT marketplace. Imported plugins
+that declare an MCP server are marked **Desktop only** and cannot run in ChatGPT
+on the web; see [OpenAI's plugin management guide](https://learn.chatgpt.com/docs/enterprise/plugin-management).
+See [OpenAI's custom MCP server guide](https://developers.openai.com/api/docs/guides/custom-mcp-server)
+for the current dialog and account requirements.
 
 ## Claude web
 
-Use [Claude](https://claude.ai) on an account with plugin access. Workspace
-policies may restrict third-party marketplaces.
+Use [Claude](https://claude.ai) on a plan with plugin access (Pro, Max, Ultra,
+Team or Enterprise). Workspace policies may restrict marketplace sources.
 
 1. Open **Customize → Plugins**.
-2. Choose **Add → Add marketplace → Add from a repository** and enter
-   `https://github.com/popow-ai/plugin` (or `popow-ai/plugin`).
-3. Find **popow** in the added marketplace and choose **Add**.
-4. Complete the bundled Popow connector's sign-in when prompted. If needed,
-   open **Customize → Connectors**, find Popow, and choose **Connect**.
-5. Start a chat, type `/` or use the **+** menu, and select the Popow skill.
-   Ask: **What can Popow do?** Then ask it to call `whoami` to check the account.
+2. Select **+**, then **Add marketplace → Add from a repository**. Pick
+   `popow-ai/plugin` from the list or enter it, then select **Sync**.
+3. On the **Popow** card that appears, select **Add**. Confirm **Continue** on
+   the notice that the plugin includes components that run code. Claude then
+   shows "Popow is installed and ready to use".
+4. Adding the plugin does not sign you in. Open the Popow plugin page, select
+   the **Connectors** tab, and choose **Connect** next to `popow`. In the
+   **Add custom connector** dialog (name and URL are prefilled) select
+   **Continue**. On step 2 keep **Sign in now** and **Use your own OAuth
+   client**, enter `b459679b-695c-4f8c-bd33-c901f8156c41` as the OAuth client
+   ID, leave the secret empty, and select **Add**. Popow does not support
+   dynamic client registration, so the client ID is required. Complete the
+   Popow sign-in in the window that opens. The plugin's connector does not
+   appear under **Customize → Connectors**.
 
 See [Anthropic's plugin guide](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
 and [connector guide](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp).
@@ -72,12 +84,6 @@ codex -c mcp_oauth_callback_port=39603
 ```
 
 Complete the Popow connection prompt and sign in with your Popow account.
-Type `$popow` and select the Popow reference-search skill. Autocomplete inserts
-`$popow:popow`. Try:
-
-```text
-$popow:popow What can Popow do?
-```
 
 ## Claude Code
 
@@ -90,25 +96,30 @@ claude plugin install popow@popow --scope user
 
 Start a new Claude Code session. Run `/mcp`, select the plugin's `popow` server,
 choose **Authenticate**, and sign in with your Popow account.
-Type `/popow` and select `/popow:popow` from autocomplete. Try:
 
-```text
-/popow:popow What can Popow do?
-```
+## Try Popow
 
-## Check the connection
+Installed plugins load when a session starts, so the user must open a new chat
+or session first. Then tell the user to send exactly one prompt:
 
-1. Check that Popow is installed and enabled in the app. CLI installations
-   should list `popow@popow`; a custom web MCP connection may use its display name.
-2. If you installed the bundled skill, invoke it and check that its reply
-   describes TikTok reference search. For an MCP-only setup, report the skill
-   as not installed rather than treating tool access as skill installation.
-3. Ask the host to call Popow's `whoami`. Check the returned account before
-   asking for references.
+| App | Prompt |
+| --- | --- |
+| ChatGPT web | `@Popow What can Popow do?` |
+| Claude web | Type `/`, choose the Popow skill, then `What can Popow do?` |
+| Codex | `$popow:popow What can Popow do?` |
+| Claude Code | `/popow:popow What can Popow do?` |
 
-Report installation, skill availability/invocation and account connection separately.
-A capability reply alone does not establish a successful account connection.
-If authentication fails, report the exact error and use the host's sign-in flow.
+Popow answers with what it can do and checks the connected account itself. If
+the account is not connected, it guides the user through the host's sign-in
+flow.
+
+Your final message to the user is two parts only: one sentence saying
+installation finished, then the prompt above. Do not list marketplace, plugin,
+MCP or connection status, do not mention other Popow registrations, and do not
+name Popow tools. Popow reports connection problems itself when the prompt is
+sent.
+
+If sign-in fails, report the exact error and use the host's sign-in flow.
 Never ask the user to paste passwords or tokens into chat.
 
 If a `popow` marketplace already exists, check its source in the host's plugin
@@ -119,9 +130,8 @@ plugin works, then remove duplicate MCP registrations through the host settings.
 ## Update
 
 For web apps, manage updates through the same plugin or connector interface used
-for setup. For ChatGPT custom MCP connections, use **Refresh** when available
-after tool metadata changes, then start a new chat and check the connection
-again. This does not install or update the repository's bundled skill.
+for setup. For a ChatGPT custom MCP connection, use **Refresh** when available,
+then start a new chat.
 
 For Codex:
 

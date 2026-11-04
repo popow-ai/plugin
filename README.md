@@ -2,7 +2,7 @@
 
 ![Popow](plugins/popow/assets/logo.png)
 
-Find TikTok creative references in Codex and Claude Code.
+Find TikTok creative references in ChatGPT, Claude, Codex and Claude Code.
 
 [Install Popow](install.md)
 
