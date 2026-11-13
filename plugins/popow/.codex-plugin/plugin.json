@@ -1,0 +1,31 @@
+{
+  "name": "popow",
+  "version": "1.0.0",
+  "description": "Find video references, research viewer comments, and save and compare videos with Popow.",
+  "author": {
+    "name": "Samyang Popow Inc."
+  },
+  "license": "MIT",
+  "interface": {
+    "displayName": "Popow",
+    "shortDescription": "Find and compare video references",
+    "longDescription": "Popow helps people making short-form content find reference videos and understand viewer comments. A Popow sign-in is required.\n\nSearch the analyzed TikTok library and live TikTok and Instagram sources. Ask for a topic, scene, date range or recorded-view threshold. Your AI app uses returned evidence to explain and group references, identify useful comments, and compare videos. Source failures and missing evidence are reported.\n\nSave a reference with a note on request, find it again, update its note or remove the save. Show references as video cards or comparison sheets where the host supports MCP Apps.\n\nMetrics are observations, not guarantees of current counts or performance. Creator and audience countries and demographics are not verified. Popow does not publish videos, message creators, remove watermarks or grant reuse rights.",
+    "developerName": "Samyang Popow Inc.",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive"
+    ],
+    "defaultPrompt": [
+      "Find TikTok references for a sunscreen launch showing it as a makeup-prep step.",
+      "Show me skincare review videos posted in the last 90 days."
+    ],
+    "websiteURL": "https://popow.ai/plugin",
+    "supportURL": "https://popow.ai/support",
+    "privacyPolicyURL": "https://popow.ai/privacy",
+    "termsOfServiceURL": "https://popow.ai/terms",
+    "logo": "./assets/logo.png",
+    "composerIcon": "./assets/logo.png"
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

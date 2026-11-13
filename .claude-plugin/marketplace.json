@@ -1,0 +1,12 @@
+{
+  "name": "popow",
+  "owner": {
+    "name": "Samyang Popow Inc."
+  },
+  "plugins": [
+    {
+      "name": "popow",
+      "source": "./plugins/popow"
+    }
+  ]
+}

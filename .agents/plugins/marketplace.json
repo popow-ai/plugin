@@ -1,0 +1,19 @@
+{
+  "name": "popow",
+  "interface": {
+    "displayName": "Popow"
+  },
+  "plugins": [
+    {
+      "name": "popow",
+      "source": {
+        "source": "local",
+        "path": "./plugins/popow"
+      },
+      "policy": {
+        "installation": "AVAILABLE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

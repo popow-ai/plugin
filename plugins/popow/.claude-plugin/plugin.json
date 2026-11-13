@@ -1,0 +1,20 @@
+{
+  "name": "popow",
+  "version": "1.0.0",
+  "description": "Find video references, research viewer comments, and save and compare videos with Popow.",
+  "author": {
+    "name": "Samyang Popow Inc."
+  },
+  "license": "MIT",
+  "privacyPolicyUrl": "https://popow.ai/privacy",
+  "mcpServers": {
+    "popow": {
+      "type": "http",
+      "url": "https://latest.mcp.popow.ai/mcp",
+      "oauth": {
+        "clientId": "b459679b-695c-4f8c-bd33-c901f8156c41",
+        "callbackPort": 39613
+      }
+    }
+  }
+}
