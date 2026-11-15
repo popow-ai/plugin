@@ -16,6 +16,12 @@ This package contains eleven workflow skills and connects to `https://mcp.popow.
 
 [Documentation](https://popow.ai/plugin) · [Support](https://popow.ai/support) · [Privacy policy](https://popow.ai/privacy) · [Terms](https://popow.ai/terms)
 
+## Data and network access
+
+The plugin sends search requests, selected video links, and requested saves or notes to the declared Popow MCP server. Popow verifies the signed-in account and stores personal reference saves and notes and supports requests to change or remove them. Search and usage records may contain user-provided text and the verified account identifier.
+
+For web research and connection recovery, skills may use the host app's search or browser tools to send search queries to its search provider, open public TikTok, Instagram, YouTube, or other source pages, and read the Popow installation guide on GitHub. Those host-managed requests are outside the declared Popow MCP connection and follow the host's permissions. The package contains no scripts, hooks, or local executable code.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

@@ -1,7 +1,7 @@
 ---
 name: starting-from-a-video
 description: "Use to understand a TikTok or Instagram Reels link or answer follow-up questions about a selected video's scenes, opening, speech or editing. For similar-video searches, use finding-references."
-allowed-tools: mcp__popow__search_collected_posts
+allowed-tools: mcp__plugin_popow-ai_popow__search_collected_posts
 metadata:
   harness-level: L2
   layer: entity

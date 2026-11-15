@@ -1,7 +1,7 @@
 ---
 name: finding-comments
 description: "Use to find comments on a product or topic, most liked first, and to identify consumer problems, complaints and pain points in them when asked, as in 'find comments about X'. Use for topic-based TikTok comment research; use finding-references for video-content analysis and creative references."
-allowed-tools: mcp__popow__search_collected_posts
+allowed-tools: mcp__plugin_popow-ai_popow__search_collected_posts
 metadata:
   harness-level: L1
   layer: entity

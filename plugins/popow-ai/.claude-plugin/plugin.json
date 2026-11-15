@@ -6,5 +6,8 @@
     "name": "Samyang Popow Inc."
   },
   "license": "MIT",
-  "privacyPolicyUrl": "https://popow.ai/privacy"
+  "privacyPolicyUrl": "https://popow.ai/privacy",
+  "displayName": "Popow",
+  "homepage": "https://popow.ai/plugin",
+  "repository": "https://github.com/popow-ai/plugin"
 }

@@ -1,7 +1,7 @@
 ---
 name: finding-references
 description: "Use for every video reference request, whatever platform it names, and before every Popow search_collected_posts call: search the library with live social videos unless the user limits it to one side, clarify requirements, write intent and conditions, judge results, follow-up and more-like-this searches, too few matches, a developed brief. For topic comments and comment-based consumer problems use finding-comments."
-allowed-tools: mcp__popow__search_collected_posts, mcp__popow__search_live_posts
+allowed-tools: mcp__plugin_popow-ai_popow__search_collected_posts, mcp__plugin_popow-ai_popow__search_live_posts
 metadata:
   harness-level: L2
   layer: entity

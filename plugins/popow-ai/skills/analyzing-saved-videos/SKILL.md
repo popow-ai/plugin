@@ -1,7 +1,7 @@
 ---
 name: analyzing-saved-videos
 description: "Use when the user asks to analyze, compare, categorize, visualize, or draft a creator brief from their saved videos and notes."
-allowed-tools: mcp__popow__read_memory, mcp__popow__show_web_videos
+allowed-tools: mcp__plugin_popow-ai_popow__read_memory, mcp__plugin_popow-ai_popow__show_web_videos
 metadata:
   harness-level: L2
   layer: entity
