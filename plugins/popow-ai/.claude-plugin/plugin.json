@@ -1,0 +1,10 @@
+{
+  "name": "popow-ai",
+  "version": "1.0.1",
+  "description": "Find video references, research viewer comments, and save and compare videos with Popow.",
+  "author": {
+    "name": "Samyang Popow Inc."
+  },
+  "license": "MIT",
+  "privacyPolicyUrl": "https://popow.ai/privacy"
+}
