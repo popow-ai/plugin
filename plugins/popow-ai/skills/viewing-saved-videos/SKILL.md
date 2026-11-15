@@ -1,7 +1,6 @@
 ---
 name: viewing-saved-videos
 description: "Use when the user wants to see all their saved Popow videos in a searchable sheet."
-allowed-tools: mcp__plugin_popow-ai_popow__read_memory, mcp__plugin_popow-ai_popow__show_web_videos
 metadata:
   harness-level: L2
   layer: entity

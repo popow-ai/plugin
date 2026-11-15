@@ -1,7 +1,6 @@
 ---
 name: searching-live-videos
 description: "Use with finding-references for every video reference request, whatever platform it names, when search_live_posts is connected; alone only when the user limits the search to live, Reels or live TikTok: short search phrases, a written checklist to judge each result, one gap-filling search, what viewers said on the picks, and grouping them for show_web_videos."
-allowed-tools: mcp__plugin_popow-ai_popow__search_live_posts, mcp__plugin_popow-ai_popow__read_live_comments, mcp__plugin_popow-ai_popow__show_web_videos
 metadata:
   harness-level: L2
   layer: entity

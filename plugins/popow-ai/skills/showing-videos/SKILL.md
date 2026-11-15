@@ -1,7 +1,6 @@
 ---
 name: showing-videos
 description: "Use when presenting TikTok videos, YouTube Shorts or Instagram Reels from Popow, live social search or the web. Use show_web_videos with cards for recommendations or sheets for lists and comparisons."
-allowed-tools: mcp__plugin_popow-ai_popow__show_web_videos
 metadata:
   harness-level: L2
   layer: entity

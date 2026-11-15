@@ -1,7 +1,6 @@
 ---
 name: writing-briefs
 description: "Use when the user wants a brief, proposal, approval note or similar material built from specific TikTok videos or Instagram Reels they chose (saved bookmarks or links): read what Popow stored about them with get_post_context and write the material in the form the user asks for."
-allowed-tools: mcp__plugin_popow-ai_popow__read_memory
 metadata:
   harness-level: L2
   layer: entity

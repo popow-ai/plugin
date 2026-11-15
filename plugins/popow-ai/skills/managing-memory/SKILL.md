@@ -1,7 +1,6 @@
 ---
 name: managing-memory
 description: "Use when the user asks to save or revisit videos or creators, recall prior product facts or personal preferences, browse saved items, or correct/delete a memory. Also use when reference work depends on previously saved context. New library searches use finding-references; video display uses showing-videos."
-allowed-tools: mcp__plugin_popow-ai_popow__whoami, mcp__plugin_popow-ai_popow__read_memory, mcp__plugin_popow-ai_popow__write_memory, mcp__plugin_popow-ai_popow__show_web_videos
 metadata:
   harness-level: L2
   layer: entity

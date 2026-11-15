@@ -1,7 +1,6 @@
 ---
 name: connecting-popow
 description: "Use when Popow tools are missing, whoami reports not signed in, authentication fails, a plugin version is incompatible, or Popow does not respond. Check updates, guide sign-in and retry the original task."
-allowed-tools: mcp__plugin_popow-ai_popow__whoami
 metadata:
   harness-level: L2
   layer: entity
